@@ -1,16 +1,16 @@
 #include <iostream>
-#include "./linkedlists/linkedlist.h"
+#include "./stack/stack.h"
 
-void printNumbers(int number) {
-    std::cout << number << std::endl;
-    return;
-}
 
 int main() {
-    int numbers[5] = {0, 1, 2, 3, 4};
-    LinkedList<int> list_numbers(numbers, 5);
-    
-    std::cout << list_numbers[2] << std::endl;
+    int some_array[5] = {0, 1, 2, 3, 4};
+
+    Stack<int> some_stack(some_array, 5);
+
+    std::cout << some_stack.pop() << std::endl;
+    std::cout << some_stack.pop() << std::endl;
+    std::cout << some_stack.pop() << std::endl;
+
 
     return 0;
 }

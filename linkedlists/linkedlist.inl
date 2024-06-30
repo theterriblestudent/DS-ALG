@@ -65,6 +65,12 @@ void LinkedList<T>::clear_list() {
     }
 
     list_length = 0;
+    tail_node = nullptr;
+}
+
+template <typename T>
+int LinkedList<T>::get_length() {
+    return list_length;
 }
 
 template <typename T>

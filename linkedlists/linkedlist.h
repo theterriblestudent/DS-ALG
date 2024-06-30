@@ -1,3 +1,6 @@
+#ifndef LINKED_LIST_H   
+#define LINKED_LIST_H
+
 #include <iostream>
 
 template <typename T>
@@ -32,6 +35,7 @@ public:
     //Methods
     auto for_each(void (*callback)(T) = nullptr) -> void; //Iterates the list and calls the "callback" for each element
     auto clear_list() -> void;
+    auto get_length() -> int;
     auto append(T) -> T;
     auto prepend(T) -> T;
     auto insert(T, int) -> T;
@@ -41,3 +45,5 @@ public:
 };
 
 #include "linkedlist.inl"
+
+#endif //LINKED_LIST_H
