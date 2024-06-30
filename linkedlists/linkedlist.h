@@ -18,6 +18,7 @@ class LinkedList {
 
     auto insert_node(T, Node* next_node = nullptr );
     auto iterate(int bound = -1) ->void;
+    auto check_bounds(int) -> void;
 
 public:
 
@@ -35,8 +36,8 @@ public:
     auto prepend(T) -> T;
     auto insert(T, int) -> T;
     auto remove(int) -> void;
-    auto operator[](int) -> T&;
+    auto operator[](const int&) -> T&;
 
 };
 
-#include "linkelists.inl"
+#include "linkedlist.inl"

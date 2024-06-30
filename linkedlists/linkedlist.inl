@@ -41,6 +41,11 @@ auto LinkedList<T>::insert_node(T element, Node* next_node) {
 
     return _temp_node;
 }
+template <typename T>
+void LinkedList<T>::check_bounds(int index) {
+    if (index > list_length || index < 1)
+        throw "Index out of bounds, boss!";
+}
 
 template <typename T>
 void LinkedList<T>::for_each(void (*callback)(T)) {
@@ -84,8 +89,7 @@ T LinkedList<T>::prepend(T element) {
 
 template <typename T>
 T LinkedList<T>::insert(T element, int index) {
-    if (index > list_length || index < 1)
-        throw "Index out of bounds, boss!";
+    check_bounds(index);
 
     if (index == 1) 
         return prepend(element);
@@ -104,8 +108,7 @@ T LinkedList<T>::insert(T element, int index) {
 
 template <typename T>
 void LinkedList<T>::remove(int index) {
-    if (index > list_length || index < 1)
-        throw "Index out of bounds, boss!";
+    check_bounds(index);
 
     if (index == 1) {
         temp_node = head_node->next_node;
@@ -124,6 +127,22 @@ void LinkedList<T>::remove(int index) {
     temp_node->next_node = _temp_node;
 
     list_length--;
+}
+
+template <typename T>
+T& LinkedList<T>::operator[](const int& index) {
+    if (index > list_length - 1 || index < 0)
+        throw "Index out of bounds, boss!";
+
+    int _iterator = 0;
+    temp_node = head_node;
+
+    while(temp_node->next_node && _iterator < index) {
+        temp_node = temp_node->next_node;
+        _iterator++;
+    }
+
+    return temp_node->data;
 }
 
 
